@@ -14,6 +14,12 @@ type Props = {
   /** Optional second ring peeking out behind the white, like a two-tone border. */
   accent?: string;
   priority?: boolean;
+  /**
+   * Load immediately instead of lazily — for an image that is the LCP
+   * element. Next 16 deprecated `priority`; `loading`/`fetchPriority` are
+   * the replacement and say plainly what they do.
+   */
+  eager?: boolean;
   sizes?: string;
   className?: string;
   imgClassName?: string;
@@ -33,6 +39,7 @@ export default function Tufted({
   pile = 16,
   accent,
   priority,
+  eager,
   sizes = "(max-width: 768px) 90vw, 45vw",
   className = "",
   imgClassName = "",
@@ -57,6 +64,8 @@ export default function Tufted({
         width={width}
         height={height}
         priority={priority}
+        loading={eager ? "eager" : undefined}
+        fetchPriority={eager ? "high" : undefined}
         sizes={sizes}
         className={`h-full w-full rounded-[inherit] object-cover ${imgClassName}`}
       />

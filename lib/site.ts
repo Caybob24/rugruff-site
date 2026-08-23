@@ -275,3 +275,108 @@ export const COLLABS = [
     h: 1235,
   },
 ] as const;
+
+/**
+ * Skategrounds — the one collaboration with its own page.
+ *
+ * Most photos are the client's own shots from the joint @rugruff /
+ * @skate.grounds post (DcUYcZwgfiB, 21 Aug 2026), re-encoded to ~1100px.
+ * The one exception is `sensorCloseup`, which is Skategrounds' own product
+ * photograph taken from skategrounds.tech — their copyright, used here with
+ * the partner credited and linked.
+ *
+ * The sensor specs below are facts taken from skategrounds.tech; the wording
+ * is ours, not theirs, so no page copy needs their sign-off to ship.
+ *
+ * Skategrounds are based in Utah; RugRuff works out of Denver. Nothing on
+ * the page should imply the two are in the same place.
+ */
+export const SKATEGROUNDS = {
+  name: "Skategrounds",
+  /** Where Skategrounds are. RugRuff is in Denver — see `partnerLabel`. */
+  location: "Utah",
+  /** Both ends of the collaboration, for eyebrows and badges. */
+  partnerLabel: "Denver × Utah",
+  website: "https://skategrounds.tech/",
+  instagramHandle: "@skate.grounds",
+  instagramUrl: "https://www.instagram.com/skate.grounds/",
+  postUrl: "https://www.instagram.com/p/DcUYcZwgfiB/",
+  /** The client's caption on the joint post. */
+  callToAction: "Go Buy A Sensor And Get Skating!",
+} as const;
+
+/** Every photo is 1100x1467 — same camera, same crop, resized together. */
+const SG_W = 1100;
+const SG_H = 1467;
+
+export const SKATEGROUNDS_PHOTOS = {
+  /** Skategrounds' own product shot — the clearest look at the hardware. */
+  sensorCloseup: {
+    src: "/collabs/skategrounds/sensor-closeup.jpg",
+    alt: "Close-up of the Skategrounds sensor bolted under a skateboard truck baseplate, USB-C port visible",
+    w: 1024,
+    h: 1264,
+  },
+  /** Cropped in tight for the hero — the wide shot is mostly lawn. */
+  rugHero: {
+    src: "/collabs/skategrounds/rug-hero.jpg",
+    alt: "Round hand-tufted rug on grass: black top half, red bottom half, thick white pile edge",
+    w: 1100,
+    h: 1389,
+  },
+  rugGrass: {
+    src: "/collabs/skategrounds/rug-grass.jpg",
+    alt: "Round hand-tufted rug on grass: black top half, red bottom half, thick white pile edge",
+    w: SG_W,
+    h: SG_H,
+  },
+  pileEdge: {
+    src: "/collabs/skategrounds/pile-edge.jpg",
+    alt: "Close-up of the rug's thick white pile edge against the red and black tufting",
+    w: SG_W,
+    h: SG_H,
+  },
+  label: {
+    src: "/collabs/skategrounds/label.jpg",
+    alt: "A hand resting on the rug's white pile edge beside the woven RugRuff label",
+    w: SG_W,
+    h: SG_H,
+  },
+  rugBack: {
+    src: "/collabs/skategrounds/rug-back.jpg",
+    alt: "The back of the rug, showing the grey non-slip backing and bound edge",
+    w: SG_W,
+    h: SG_H,
+  },
+  rugKerb: {
+    src: "/collabs/skategrounds/rug-kerb.jpg",
+    alt: "The finished round rug laid out on grass beside a concrete kerb",
+    w: SG_W,
+    h: SG_H,
+  },
+  sensor: {
+    src: "/collabs/skategrounds/sensor.jpg",
+    alt: "The Skategrounds sensor bolted under a skateboard truck baseplate on a chequered deck",
+    w: SG_W,
+    h: SG_H,
+  },
+  makers: {
+    src: "/collabs/skategrounds/makers.jpg",
+    alt: "Two people outdoors holding up the finished round Skategrounds rug",
+    w: SG_W,
+    h: SG_H,
+  },
+} as const;
+
+/**
+ * Sensor specs, as published on skategrounds.tech. Kept as data so the
+ * page has one place to correct if the product changes.
+ */
+export const SKATEGROUNDS_SPECS = [
+  { label: "Tricks to unlock", value: "564" },
+  { label: "Skate time per charge", value: "16 hrs" },
+  { label: "Charges over", value: "USB-C" },
+  { label: "Mounts to", value: "Baseplate" },
+  { label: "Spots on the leaderboard", value: "23,000+" },
+  { label: "Subscription", value: "None" },
+] as const;

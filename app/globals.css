@@ -441,3 +441,96 @@
     }
   }
 }
+
+/* ============================================================
+   SKATEGROUNDS × RUGRUFF — collaboration page
+   The same "Loop & Pile" system with one colour swapped and a
+   few skate-park surfaces added. Scoped to `.theme-skate` so it
+   cannot leak into the rest of the site.
+   ============================================================ */
+
+@layer components {
+  /* The whole design system hangs off --color-coral: buttons, the eyebrow
+     dot, the yarn underline, the scroll thread. Retargeting the two custom
+     properties on a wrapper repaints all of it in Skategrounds red without
+     touching a single component. */
+  .theme-skate {
+    --color-coral: #cf0000;
+    --color-coral-deep: #6d0000;
+  }
+
+  /* ---- Griptape ------------------------------------------------------
+     The black grit sheet on the top of a deck. Fractal noise at a high
+     base frequency reads as grip at any zoom, and tiles in 120px. */
+  .griptape {
+    background-color: #131316;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23g)' opacity='0.42'/%3E%3C/svg%3E");
+  }
+
+  /* ---- Slap stickers --------------------------------------------------
+     A die-cut sticker is a printed shape, a white cut margin around it,
+     then the surface underneath. That's exactly a doubled box-shadow:
+     a hard white spread for the cut line, then a soft drop for lift. */
+  .sticker {
+    /* Anchors the peeled corner. Declared here rather than inline so a
+       caller can still place a sticker with `absolute` — a utility class
+       beats this one on cascade order, an inline style would not. */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 0.5rem;
+    background: var(--sticker-bg, #fff);
+    color: var(--sticker-fg, var(--color-ink));
+    box-shadow:
+      0 0 0 5px #fff,
+      0 5px 12px rgba(0, 0, 0, 0.3);
+    transform: rotate(var(--tilt, -5deg));
+    /* Stickers are decoration slapped over the layout — never let one
+       swallow a click meant for the photo underneath. */
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .sticker-round {
+    border-radius: 999px;
+    padding: 0.85rem 0.85rem;
+    aspect-ratio: 1;
+  }
+
+  /* Sunburst sticker root. `position: relative` anchors the SVG shape behind
+     the label, and lives here rather than as a `relative` utility on the
+     element so that a caller passing `absolute` still wins — utilities are
+     layered after components, two competing utilities are not. */
+  .sticker-burst {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Peeling corner — a folded triangle catching light at one edge. */
+  .sticker-peel::after {
+    content: "";
+    position: absolute;
+    right: -2.5px;
+    bottom: -2.5px;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: linear-gradient(315deg, #fff 46%, rgba(0, 0, 0, 0.22) 52%, transparent 54%);
+    border-right: 2.5px solid var(--color-ink);
+    border-bottom: 2.5px solid var(--color-ink);
+    border-bottom-right-radius: 0.5rem;
+  }
+}

@@ -3,12 +3,16 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Tufted from "@/components/Tufted";
 import Reveal from "@/components/Reveal";
-import { COLLABS } from "@/lib/site";
+import {
+  COLLABS,
+  SKATEGROUNDS as SG,
+  SKATEGROUNDS_PHOTOS as SG_PHOTO,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Collaborations",
   description:
-    "RugRuff has worked with brands and influencers including Cdp Media, Phantom Kai Boots and Liam Abner Magic.",
+    "RugRuff has worked with brands and influencers including Skategrounds, Cdp Media, Phantom Kai Boots and Liam Abner Magic.",
 };
 
 export default function CollaborationsPage() {
@@ -20,7 +24,60 @@ export default function CollaborationsPage() {
         lead="Giveaways, meetups and one-off pieces made with people I like working with."
       />
 
-      <section className="shell space-y-24 pt-20 md:space-y-32 md:pt-28">
+      {/* Skategrounds leads and is the only one with a page of its own, so it
+          gets a full-width feature rather than a row in the alternating list. */}
+      <section className="shell pt-20 md:pt-28">
+        <Reveal>
+          <Link
+            href="/collaborations/skategrounds"
+            className="theme-skate card card-lift group block overflow-hidden px-6 py-10 md:px-12 md:py-14"
+          >
+            <div className="grid items-center gap-10 md:grid-cols-[1fr_1.05fr] md:gap-14">
+              <Tufted
+                src={SG_PHOTO.rugHero.src}
+                alt={SG_PHOTO.rugHero.alt}
+                width={SG_PHOTO.rugHero.w}
+                height={SG_PHOTO.rugHero.h}
+                blob={2}
+                seed="c"
+                pile={16}
+                accent="#cf0000"
+                sizes="(max-width: 768px) 74vw, 34vw"
+                className="mx-auto w-full max-w-xs"
+                imgClassName="!h-auto"
+              />
+
+              <div>
+                <p className="eyebrow">
+                  <span
+                    aria-hidden="true"
+                    className="inline-block size-2.5 rounded-full bg-coral"
+                  />
+                  Latest &middot; {SG.partnerLabel}
+                </p>
+                <h2 className="text-big mt-3 font-display font-extrabold">
+                  {SG.name}
+                </h2>
+                <p className="mt-4 text-xl text-ink-2">
+                  A round tufted rug for the crew building a sensor that turns
+                  skating into a game you play in real life.
+                </p>
+                <span className="btn mt-8">
+                  See the whole story
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    &rarr;
+                  </span>
+                </span>
+              </div>
+            </div>
+          </Link>
+        </Reveal>
+      </section>
+
+      <section className="shell space-y-24 pt-24 md:space-y-32 md:pt-32">
         {COLLABS.map((c, i) => (
           <Reveal key={c.name}>
             <article
