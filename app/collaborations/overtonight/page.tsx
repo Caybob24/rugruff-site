@@ -387,7 +387,6 @@ export default function OvertonightPage() {
               <CatStamp className="rotate-6" />
               <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#e7accb]">Denver · 02 Oct 2026<br />Captured after dark</p>
             </div>
-            <a href="https://www.livenation.com/event/G5vzZ_G6Jflr4/overtonight" target="_blank" rel="noopener noreferrer" className="mt-5 inline-block text-sm font-bold text-[#f4d7e0] underline decoration-[#e08aa0] underline-offset-4 hover:text-white">Show at the Marquis ↗</a>
             <Link href="/collaborations" className="btn btn-night-plain mt-9">
               More collaborations <span aria-hidden="true">→</span>
             </Link>
