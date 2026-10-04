@@ -8,13 +8,13 @@ import { BurstSticker, Sticker } from "@/components/skategrounds/Sticker";
 export const metadata: Metadata = {
   title: "Overtonight",
   description:
-    "A custom hand-tufted rug for musician Overtonight, from a pixel-style design to the after-dark handoff.",
+    "Hand-tufted rugs for Overtonight and opening artist Tommy Ragen, from pixel-style artwork to the after-dark handoff.",
 };
 
 const photos = {
   hero: {
     src: "/collabs/overtonight/photo-15.webp",
-    alt: "Three people under blue venue lights holding two hand-tufted character rugs",
+    alt: "Three people under blue venue lights holding rugs made for Overtonight and Tommy Ragen",
     width: 1125,
     height: 1500,
   },
@@ -32,13 +32,13 @@ const photos = {
   },
   together: {
     src: "/collabs/overtonight/photo-11.webp",
-    alt: "The cat face rug beside a second character rug with a BROTHER cap",
+    alt: "Overtonight's cat face rug beside Tommy Ragen's character rug with a BROTHER cap",
     width: 1125,
     height: 1500,
   },
   backs: {
     src: "/collabs/overtonight/photo-12.webp",
-    alt: "The reverse sides of two custom rugs laid out on grass",
+    alt: "The reverse sides of Overtonight's and Tommy Ragen's rugs laid out on grass",
     width: 1125,
     height: 1500,
   },
@@ -59,10 +59,16 @@ const photos = {
 const ticker = ["One of one", "Made by hand", "From art to yarn", "After dark"];
 
 const TRACK = {
-  title: "trick or treat",
-  spotify: "https://open.spotify.com/track/1lQQyo7aceIvIOoOqIxHpc",
-  embed: "https://open.spotify.com/embed/track/1lQQyo7aceIvIOoOqIxHpc",
-  apple: "https://music.apple.com/us/album/salem-single/1845477142",
+  title: "elephant cage",
+  spotify: "https://open.spotify.com/track/2jIS2x5DswnvyYFG0sCPDs",
+  embed: "https://open.spotify.com/embed/track/2jIS2x5DswnvyYFG0sCPDs",
+  apple: "https://music.apple.com/us/song/elephant-cage/1860915174",
+} as const;
+
+const SOCIAL = {
+  overtonightInstagram: "https://www.instagram.com/overtonight_/",
+  tommyInstagram: "https://www.instagram.com/tommyragen/",
+  tommyTikTok: "https://www.tiktok.com/@tommyragen",
 } as const;
 
 function CatStamp({ className = "" }: { className?: string }) {
@@ -163,8 +169,9 @@ export default function OvertonightPage() {
               </Reveal>
               <Reveal delay={90}>
                 <p className="mt-8 max-w-xl text-xl leading-relaxed text-[#e1d7e2]">
-                  A custom rug for musician Overtonight. Pixel-sharp artwork
-                  turned into soft, hand-tufted yarn, then brought out into the
+                  A custom rug for musician Overtonight, alongside a second
+                  piece for opening artist Tommy Ragen. Pixel-sharp artwork
+                  turned into soft, hand-tufted yarn and brought out into the
                   night.
                 </p>
               </Reveal>
@@ -179,6 +186,9 @@ export default function OvertonightPage() {
                 </div>
               </Reveal>
               <Reveal delay={200}>
+                <a href={SOCIAL.overtonightInstagram} target="_blank" rel="noopener noreferrer" className="mt-7 inline-block text-sm font-bold text-[#f4d7e0] underline decoration-[#e08aa0] underline-offset-4 hover:text-white">
+                  Overtonight on Instagram ↗
+                </a>
                 <p className="mt-14 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-[#b9adbf]">
                   <span aria-hidden="true" className="h-px w-10 bg-[#d597b6]" />
                   Familiar artwork. A whole different texture.
@@ -344,12 +354,17 @@ export default function OvertonightPage() {
             <article className="night-brother-pass mt-8 grid overflow-hidden rounded-[1.75rem] md:grid-cols-[1fr_1fr]">
               <Image {...photos.together} alt={photos.together.alt} sizes="(max-width: 768px) 90vw, 44vw" className="aspect-[4/3] h-full w-full object-cover object-[center_65%]" />
               <div className="flex flex-col justify-center p-7 sm:p-10 md:p-12">
-                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#f0a2b6]">The other face in the frame</p>
+                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#f0a2b6]">For the opening artist</p>
                 <h3 className="mt-4 font-display text-5xl font-extrabold uppercase tracking-tight text-white md:text-6xl">Brother.</h3>
                 <p className="mt-5 max-w-sm text-lg leading-relaxed text-[#e0d0d5]">
-                  The second rug wears the word right on its cap. Overtonight calls his listeners “bros” on his artist profile — a small detail that makes this pair feel personal.
+                  This rug was made for Tommy Ragen, who opened for Overtonight
+                  at the Denver show. The word BROTHER sits right on its cap;
+                  the two artists&apos; rugs came together for the handoff.
                 </p>
-                <a href="https://audiomack.com/overtonight" target="_blank" rel="noopener noreferrer" className="mt-6 self-start text-sm font-bold text-white underline decoration-[#ed8ba3] underline-offset-4 hover:text-[#f4a7b9]">Overtonight on Audiomack ↗</a>
+                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold">
+                  <a href={SOCIAL.tommyInstagram} target="_blank" rel="noopener noreferrer" className="text-white underline decoration-[#ed8ba3] underline-offset-4 hover:text-[#f4a7b9]">Tommy on Instagram ↗</a>
+                  <a href={SOCIAL.tommyTikTok} target="_blank" rel="noopener noreferrer" className="text-white underline decoration-[#ed8ba3] underline-offset-4 hover:text-[#f4a7b9]">Tommy on TikTok ↗</a>
+                </div>
               </div>
             </article>
           </Reveal>
@@ -364,7 +379,9 @@ export default function OvertonightPage() {
               Out of the workshop. Into the night.
             </h2>
             <p className="mt-7 max-w-md text-lg leading-relaxed text-[#d7ccd9]">
-              October 2 was Overtonight&apos;s Denver show at the Marquis. The photos from that evening show the finished pieces together under blue venue lights.
+              October 2 was Overtonight&apos;s Denver show at the Marquis, with
+              Tommy Ragen opening. The photos from that evening show both
+              artists&apos; rugs together under blue venue lights.
             </p>
             <div className="mt-8 flex items-center gap-4">
               <CatStamp className="rotate-6" />
