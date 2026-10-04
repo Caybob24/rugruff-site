@@ -100,6 +100,12 @@ export type Piece = {
  */
 export const WORK: Piece[] = [
   {
+    src: "/collabs/overtonight/photo-07.webp",
+    alt: "Overtonight's hand-tufted pixel-style cat face rug in black, white and grey with a pink tongue, photographed on grass",
+    w: 1125,
+    h: 1500,
+  },
+  {
     src: "/work/rug-01.jpeg",
     alt: "Hand-tufted flower rug in black and white with purple leaves and a pink centre",
     w: 1152,
