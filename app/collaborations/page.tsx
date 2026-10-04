@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Collaborations",
   description:
-    "RugRuff has worked with brands and influencers including Skategrounds, Cdp Media, Phantom Kai Boots and Liam Abner Magic.",
+    "RugRuff has worked with musicians, brands and creators including Overtonight, Skategrounds, Cdp Media, Phantom Kai Boots and Liam Abner Magic.",
 };
 
 export default function CollaborationsPage() {
@@ -24,9 +24,46 @@ export default function CollaborationsPage() {
         lead="Giveaways, meetups and one-off pieces made with people I like working with."
       />
 
-      {/* Skategrounds leads and is the only one with a page of its own, so it
-          gets a full-width feature rather than a row in the alternating list. */}
-      <section className="shell pt-20 md:pt-28">
+      <section className="shell space-y-8 pt-20 md:space-y-10 md:pt-28">
+        <Reveal>
+          <Link
+            href="/collaborations/overtonight"
+            className="theme-overtonight night-grid card-lift group block overflow-hidden rounded-[1.75rem] border-[2.5px] border-ink px-6 py-10 text-white shadow-[0_6px_0_0_var(--color-ink)] md:px-12 md:py-14"
+          >
+            <div className="grid items-center gap-10 md:grid-cols-[1fr_1.05fr] md:gap-14">
+              <Tufted
+                src="/collabs/overtonight/photo-04.webp"
+                alt="A hand resting on the thick pile of a pixel-style cat face rug"
+                width={1125}
+                height={1500}
+                blob={3}
+                seed="b"
+                pile={16}
+                accent="#c45b91"
+                sizes="(max-width: 768px) 74vw, 34vw"
+                className="mx-auto w-full max-w-xs"
+                imgClassName="!h-auto"
+              />
+              <div>
+                <p className="eyebrow !text-[#e7accb]">
+                  <span aria-hidden="true" className="inline-block size-2.5 rounded-full bg-[#f1a7c9]" />
+                  New &middot; Artist collaboration
+                </p>
+                <h2 className="text-big mt-3 font-display font-extrabold">
+                  Overtonight
+                </h2>
+                <p className="mt-4 text-xl text-[#e1d7e2]">
+                  Pixel-style artwork made into a custom rug for the musician,
+                  then handed over under blue lights.
+                </p>
+                <span className="btn mt-8">
+                  See the whole story
+                  <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                </span>
+              </div>
+            </div>
+          </Link>
+        </Reveal>
         <Reveal>
           <Link
             href="/collaborations/skategrounds"
@@ -53,7 +90,7 @@ export default function CollaborationsPage() {
                     aria-hidden="true"
                     className="inline-block size-2.5 rounded-full bg-coral"
                   />
-                  Latest &middot; {SG.partnerLabel}
+                  Featured &middot; {SG.partnerLabel}
                 </p>
                 <h2 className="text-big mt-3 font-display font-extrabold">
                   {SG.name}

@@ -14,7 +14,7 @@ export const dynamic = "force-static";
  * Pages that are reachable from the site but deliberately not in the top
  * nav — they still need to be in the sitemap to get indexed.
  */
-const EXTRA = ["/collaborations/skategrounds"];
+const EXTRA = ["/collaborations/overtonight", "/collaborations/skategrounds"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

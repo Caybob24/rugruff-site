@@ -459,6 +459,82 @@
     --color-coral-deep: #6d0000;
   }
 
+  .theme-overtonight {
+    --color-coral: #b73751;
+    --color-coral-deep: #65172e;
+  }
+
+  .overtonight-page {
+    background: #17131e;
+  }
+
+  .night-grid {
+    background-color: #17131e;
+    background-image:
+      linear-gradient(rgba(194, 165, 210, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(194, 165, 210, 0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .night-panel {
+    background:
+      radial-gradient(circle at 10% 20%, rgba(148, 42, 70, 0.17), transparent 42%),
+      #211a25;
+  }
+
+  .night-hero-frame {
+    border: 3px solid #f7e5f0;
+    box-shadow: 10px 10px 0 #87344d;
+  }
+
+  .night-photo-card {
+    border: 2.5px solid #c4869b;
+    background: #30232d;
+    box-shadow: 0 7px 0 #100b16;
+  }
+
+  .night-music-card {
+    border: 3px solid #ecb2c2;
+    background:
+      radial-gradient(circle at 82% 15%, rgba(159, 41, 71, 0.26), transparent 42%),
+      #110d14;
+    box-shadow: 10px 10px 0 #7d293f;
+  }
+
+  .night-music-noise {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      rgba(247, 202, 218, 0.025) 3px 4px
+    );
+  }
+
+  .night-record-photo {
+    border: 2.5px solid #f3d6e0;
+    box-shadow: 6px 6px 0 #8c344e;
+  }
+
+  .cat-stamp {
+    border: 3px solid #f6e9ee;
+    box-shadow: 5px 5px 0 #a12e4d;
+  }
+
+  .night-brother-pass {
+    border: 2.5px dashed #e09bab;
+    background: #321b27;
+    box-shadow: 0 7px 0 #100b16;
+  }
+
+  .btn-night-plain {
+    --btn-bg: transparent;
+    --btn-fg: #fff;
+    --btn-line: #d7aec8;
+  }
+
+  .btn-night-plain:hover {
+    --btn-bg: #382839;
+  }
+
   /* ---- Griptape ------------------------------------------------------
      The black grit sheet on the top of a deck. Fractal noise at a high
      base frequency reads as grip at any zoom, and tiles in 120px. */
