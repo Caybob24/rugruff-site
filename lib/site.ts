@@ -87,6 +87,7 @@ export type Piece = {
   alt: string;
   w: number;
   h: number;
+  collaborationHref?: string;
 };
 
 /**
@@ -104,6 +105,7 @@ export const WORK: Piece[] = [
     alt: "Overtonight's hand-tufted pixel-style cat face rug in black, white and grey with a pink tongue, photographed on grass",
     w: 1125,
     h: 1500,
+    collaborationHref: "/collaborations/overtonight",
   },
   {
     src: "/work/rug-01.jpeg",

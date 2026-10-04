@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Tufted from "@/components/Tufted";
 import Reveal from "@/components/Reveal";
@@ -19,20 +20,19 @@ export default function Gallery({ pieces }: { pieces: Piece[] }) {
   const [open, setOpen] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState(false);
 
-  const close = useCallback(() => setOpen(null), []);
+  const close = useCallback(() => {
+    setOpen(null);
+    setZoomed(false);
+  }, []);
   const step = useCallback(
-    (dir: 1 | -1) =>
+    (dir: 1 | -1) => {
+      setZoomed(false);
       setOpen((i) =>
         i === null ? i : (i + dir + pieces.length) % pieces.length,
-      ),
+      );
+    },
     [pieces.length],
   );
-
-  // Always reopen fitted — carrying a zoom across to the next photo would
-  // land the viewer somewhere arbitrary in it.
-  useEffect(() => {
-    setZoomed(false);
-  }, [open]);
 
   useEffect(() => {
     if (open === null) return;
@@ -68,7 +68,10 @@ export default function Gallery({ pieces }: { pieces: Piece[] }) {
           >
             <button
               type="button"
-              onClick={() => setOpen(i)}
+              onClick={() => {
+                setZoomed(false);
+                setOpen(i);
+              }}
               className="group block w-full text-left"
             >
               <Tufted
@@ -94,6 +97,11 @@ export default function Gallery({ pieces }: { pieces: Piece[] }) {
                 </span>
               </span>
             </button>
+            {p.collaborationHref && (
+              <Link href={p.collaborationHref} className="btn mt-5">
+                See the collaboration <span aria-hidden="true">&rarr;</span>
+              </Link>
+            )}
           </Reveal>
         ))}
       </div>
@@ -129,7 +137,7 @@ export default function Gallery({ pieces }: { pieces: Piece[] }) {
               never showed this, which is exactly why it has to be sized
               this way. */}
           <div
-            className={`absolute inset-0 pb-24 sm:p-8 sm:pb-28 md:p-12 md:pb-28 ${
+            className={`absolute inset-0 ${active.collaborationHref ? "pb-40 sm:pb-40 md:pb-40" : "pb-24 sm:pb-28 md:pb-28"} sm:px-8 sm:pt-8 md:px-12 md:pt-12 ${
               zoomed
                 ? "overflow-auto"
                 : "flex items-center justify-center overflow-hidden"
@@ -160,6 +168,14 @@ export default function Gallery({ pieces }: { pieces: Piece[] }) {
               {open! + 1} of {pieces.length} &middot;{" "}
               {zoomed ? "tap to fit" : "tap photo to zoom"}
             </p>
+            {active.collaborationHref && (
+              <Link
+                href={active.collaborationHref}
+                className="pointer-events-auto btn !py-2.5"
+              >
+                See the collaboration <span aria-hidden="true">&rarr;</span>
+              </Link>
+            )}
             <div className="pointer-events-auto flex items-center gap-2.5">
               <button
                 type="button"
